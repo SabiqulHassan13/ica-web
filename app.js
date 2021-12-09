@@ -7,6 +7,8 @@ const app = express();
 
 // middleware list
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(expressLayouts);
 
 // template engine setup
@@ -37,7 +39,8 @@ app.post("/auth/login", (req, res) => {
   const { username } = req.body;
   console.log(username);
   //   res.send(`Username ${username}`);
-  res.send("Thanks for login");
+  //   res.send("Thanks for login");
+  res.render("dashboard");
 });
 
 PORT = 3000;
