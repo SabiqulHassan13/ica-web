@@ -40,7 +40,7 @@ app.post("/auth/login", (req, res) => {
   console.log(username);
   //   res.send(`Username ${username}`);
   //   res.send("Thanks for login");
-  res.render("dashboard");
+  res.redirect("/dashboard");
 });
 
 PORT = 3000;
