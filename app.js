@@ -24,17 +24,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  res.send("<h1>Dashboard Page</h1>");
+  //   res.send("<h1>Dashboard Page</h1>");
+  res.render("dashboard");
 });
 
 app.get("/auth/login", (req, res) => {
-  res.send(`
-    <h2>Login Form</h2>
-    <form action="/auth/login" method="POST">
-        <input type="text" name="username" />
-        <button>Submit</button>  
-    </form>
-    `);
+  //   res.send(`Login Form`);
+  res.render("auth/login");
 });
 
 app.post("/auth/login", (req, res) => {
