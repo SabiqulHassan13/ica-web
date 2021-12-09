@@ -5,13 +5,17 @@ const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
 
+// middleware list
+app.use(express.urlencoded({ extended: false }));
+app.use(expressLayouts);
+
 // template engine setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// middleware list
-app.use(express.urlencoded({ extended: false }));
-app.use(expressLayouts);
+app.set("layout extractStyles", true);
+app.set("layout extractScripts", true);
+app.set("layout", "layouts/layout");
 
 // route list
 app.get("/", (req, res) => {
