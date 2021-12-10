@@ -6,14 +6,21 @@ const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
 
-// middleware list
+/**
+ *  middleware list
+ */
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(morgan("tiny"));
+// app.use(morgan("tiny"));
+app.use(
+  morgan(":method :url :status :res[content-length] - :response-time ms")
+);
 app.use(expressLayouts);
 
-// template engine setup
+/**
+ *  template engine setup
+ */
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -21,7 +28,10 @@ app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 app.set("layout", "layouts/layout");
 
-// route list
+/**
+ *  route list
+ */
+
 app.get("/", (req, res) => {
   //   res.send("<h1>Hello world</h1>");
   res.render("home");
