@@ -1,6 +1,7 @@
 const path = require("path");
 
 const express = require("express");
+const morgan = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(morgan("tiny"));
 app.use(expressLayouts);
 
 // template engine setup
