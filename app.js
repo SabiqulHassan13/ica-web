@@ -4,6 +4,8 @@ const express = require("express");
 const morgan = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 
+const indexRoutes = require("./routes/index-routes");
+
 const app = express();
 
 /**
@@ -31,17 +33,7 @@ app.set("layout", "layouts/layout");
 /**
  *  route list
  */
-
-app.get("/", (req, res) => {
-  //   res.send("<h1>Hello world</h1>");
-  res.render("home");
-});
-
-app.get("/dashboard", (req, res) => {
-  //   res.send("<h1>Dashboard Page</h1>");
-  res.render("dashboard");
-});
-
+app.use("/", indexRoutes);
 app.get("/auth/login", (req, res) => {
   //   res.send(`Login Form`);
   res.render("auth/login");
