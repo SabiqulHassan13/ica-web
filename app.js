@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 
 const indexRoutes = require("./routes/index-routes");
+const authRoutes = require("./routes/auth-routes");
 
 const app = express();
 
@@ -34,18 +35,7 @@ app.set("layout", "layouts/layout");
  *  route list
  */
 app.use("/", indexRoutes);
-app.get("/auth/login", (req, res) => {
-  //   res.send(`Login Form`);
-  res.render("auth/login");
-});
-
-app.post("/auth/login", (req, res) => {
-  const { username } = req.body;
-  console.log(username);
-  //   res.send(`Username ${username}`);
-  //   res.send("Thanks for login");
-  res.redirect("/dashboard");
-});
+app.use("/auth", authRoutes);
 
 PORT = 3000;
 app.listen(PORT, () => {
