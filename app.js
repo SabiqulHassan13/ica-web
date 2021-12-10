@@ -37,6 +37,9 @@ app.set("layout", "layouts/layout");
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 
+/**
+ * server listen
+ */
 PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
