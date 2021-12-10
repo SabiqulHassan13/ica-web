@@ -15,4 +15,10 @@ router.post("/login", (req, res) => {
   res.redirect("/dashboard");
 });
 
+router.get("/logout", (req, res) => {
+  // console.log("Thanks for Logout");
+  res.send("Thanks for Logout");
+  // res.redirect("/");
+});
+
 module.exports = router;
